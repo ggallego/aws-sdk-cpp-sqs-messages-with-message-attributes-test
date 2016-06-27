@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(sqs-batch-with-message-attributes-test)
+project(sqs-messages-with-message-attributes-test)
 
 ### gtest stuff
 
@@ -29,21 +29,21 @@ endif()
 
 ### build project
 
-file(GLOB SQS_BATCH_WITH_MESSAGE_ATTRIBUTES_SRC
+file(GLOB SQS_MESSAGES_WITH_MESSAGE_ATTRIBUTES_SRC
   "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
 )
-file(GLOB SQS_BATCH_WITH_MESSAGE_ATTRIBUTES_HEADERS
+file(GLOB SQS_MESSAGES_WITH_MESSAGE_ATTRIBUTES_HEADERS
   "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
 )
-file(GLOB SQS_BATCH_WITH_MESSAGE_ATTRIBUTES_UNIFIED_SRC
- ${SQS_BATCH_WITH_MESSAGE_ATTRIBUTES_SRC}
- ${SQS_BATCH_WITH_MESSAGE_ATTRIBUTES_HEADERS}
+file(GLOB SQS_MESSAGES_WITH_MESSAGE_ATTRIBUTES_UNIFIED_SRC
+ ${SQS_MESSAGES_WITH_MESSAGE_ATTRIBUTES_SRC}
+ ${SQS_MESSAGES_WITH_MESSAGE_ATTRIBUTES_HEADERS}
 )
 
 find_package(aws-sdk-cpp)
 
 enable_testing()
 
-add_executable(runSQSBatchWithMessageAttributesTest ${SQS_BATCH_WITH_MESSAGE_ATTRIBUTES_UNIFIED_SRC})
+add_executable(runSQSMessagesWithMessageAttributesTest ${SQS_MESSAGES_WITH_MESSAGE_ATTRIBUTES_UNIFIED_SRC})
 
-target_link_libraries(runSQSBatchWithMessageAttributesTest gtest gtest_main aws-cpp-sdk-sqs)
+target_link_libraries(runSQSMessagesWithMessageAttributesTest aws-cpp-sdk-sqs gtest gtest_main)
